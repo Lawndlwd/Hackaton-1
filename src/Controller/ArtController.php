@@ -104,6 +104,7 @@ class ArtController extends AbstractController
         $artworks = $this->randomPick(3, $object['objectIDs']);
         return $this->twig->render('Met/artView.html.twig', [
             'artworks' => $artworks,
+            'location' => $location,
             'current' => $currentPeriod,
             'target' => $target
         ]);
@@ -148,7 +149,7 @@ class ArtController extends AbstractController
         $metManager = new MetManager();
         $artworks = [];
         for ($i=0; $i<$number; $i++) {
-            $rand = rand(1, count($objects));
+            $rand = rand(0, count($objects)-1);
             $id = $objects[$rand];
             $artworks[$i] = $metManager->getInfosById($id);
         }
