@@ -13,19 +13,19 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 class ArtController extends AbstractController
 {
     const PERIODS = array(
-        "antiquity" => [
+        "Antiquity" => [
             "begin" => '-3000',
             "end" => '475'
         ],
-        "middleAge" => [
+        "MiddleAge" => [
             "begin" => '476',
             "end" => '1491'
         ],
-        "modern" => [
+        "Modern" => [
             "begin" => '1492',
             "end" => '1788'
         ],
-        "contemporary" => [
+        "Contemporary" => [
             "begin" => '1789',
             "end" => '2020'
         ]);
@@ -98,7 +98,7 @@ class ArtController extends AbstractController
         if (!empty($nextPeriod)) {
             $target = '/art/journey/'.$location.'/'.$nextPeriod;
         } else {
-            $target = '/';
+            $target = '/art/end';
         }
 
         $artworks = $this->randomPick(3, $object['objectIDs']);
@@ -113,6 +113,9 @@ class ArtController extends AbstractController
     /**
      * @param string $period
      * @return mixed
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     private function getNextPeriod(string $period)
     {
@@ -155,5 +158,16 @@ class ArtController extends AbstractController
         }
 
         return $artworks;
+    }
+
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function end()
+    {
+        return $this->twig->render('Home/theEnd.html.twig');
     }
 }

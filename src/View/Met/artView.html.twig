@@ -8,20 +8,20 @@
             <h1>{{ location }} </h1>
             <img id="flag" class="ml-3" src="/assets/images/{{ location }}-flag.png" alt="{{ location }} Flag">
             <div class="col-11 col-lg-12 progress">
-                {% if current == "antiquity" %}
+                {% if current == "Antiquity" %}
                     <div class="progress-bar bg-primary font-white" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100">Antiquity</div>
-                {% elseif current == "middleAge" %}
+                {% elseif current == "MiddleAge" %}
                     <div class="progress-bar bg-success font-second" role="progressbar" style="width: 89%;" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">Middle Age</div>
-                {% elseif current == "modern" %}
+                {% elseif current == "Modern" %}
                     <div class="progress-bar bg-warning font-first" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Modern</div>
-                {% elseif current == "contemporary" %}
+                {% elseif current == "Contemporary" %}
                     <div class="progress-bar bg-danger font-white" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Contemporary</div>
                 {% endif %}
 
             </div>
         </div>
         <div class="row justify-content-center">
-            <div id="carouselArt" class="carousel slide" data-ride="carousel">
+            <div id="carouselArt" class="carousel slide shadow-lg" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for artwork in artworks %}
                     <li data-target="#carouselArt" data-slide-to="{{ loop.index-1 }}" {% if loop.index == 1%} class="active"{% endif %}"></li>
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="row justify-content-center my-3">
-            <a href="{{ target }}" alt="" class="btn bg-fourth font-first">{% if target != '/' %}Next period{% else %}End the journey{% endif %}</a>
+            <a href="{{ target }}" alt="" class=" shadow-lg btn bg-first font-fourth">{% if target != '/art/end' %}Next period{% else %}End the journey{% endif %}</a>
         </div>
     </div>
 {% endblock %}
