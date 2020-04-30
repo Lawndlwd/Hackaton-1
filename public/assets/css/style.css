@@ -55,6 +55,10 @@ ul li{
     list-style: none;
 }
 @media screen and (max-width:767px) {
+    .container{
+        padding-left: 7%;
+        padding-right: 7%;
+    }
     .form-card2{
         height: 400px; color: #00a8cc;
         border-radius: 0px 0px 50px 50px;
