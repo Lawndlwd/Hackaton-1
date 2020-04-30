@@ -159,7 +159,7 @@ class ArtController extends AbstractController
 
         return $artworks;
     }
-
+  
     /**
      * @return string
      * @throws \Twig\Error\LoaderError
