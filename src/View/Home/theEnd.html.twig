@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        {% if message != '' %}
+            <div class="row mt-5 pt-3 justify-content: center;">
+                <h5 class="card-title text-center">{{ messages }}Thank You For Taking  A Tour Take Another one It's Free </h5>
+            </div>
+        {% endif %}
+        <div class="row mt-5 pt-3 justify-content: center;">
+            <div class="col-sm-7 col-md-5 col-lg-5 p-0">
+                <div class="card form-card1 shadow-lg">
+                    <div class="photo"></div>
+                    <h5 class="card-title text-center">Great! You Have Finished Your Tour!</h5>
+                    <div class="card-body">
+                        <h5 class=" end-head card-title text-center">Do You want to discover Another Region?</h5>
+                        <h5 class=" end-head card-title text-center">Don't Worry Our Service Is Free </h5>
+                        <h5 class=" end-head card-title text-center">Just click On The button </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-5 col-lg-5 p-0">
+                <div class="card form-card2 shadow-lg">
+                    <div class="photo"></div>
+                    <div class="card-body">
+                        <a href="/Home/index" class="end-btn shadow-lg btn btn-primary ">Take Another Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

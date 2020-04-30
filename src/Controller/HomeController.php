@@ -13,24 +13,24 @@ use App\Model\MetManager;
 class HomeController extends AbstractController
 {
     const PERIODS = array(
-        "antiquity" => [
+        "Antiquity" => [
             "begin" => '-3000',
             "end" => '475'
         ],
-        "middleAge" => [
+        "MiddleAge" => [
             "begin" => '476',
             "end" => '1491'
         ],
-        "modern" => [
+        "Modern" => [
             "begin" => '1492',
             "end" => '1788'
         ],
-        "contemporary" => [
+        "Contemporary" => [
             "begin" => '1789',
             "end" => '2020'
         ]);
     const REGION =array(
-        'France','Italy'
+        'France','Italy','Japan','China','Germany','Africa'
     );
 
     /**

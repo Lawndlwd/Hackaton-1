@@ -13,19 +13,19 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 class ArtController extends AbstractController
 {
     const PERIODS = array(
-        "antiquity" => [
+        "Antiquity" => [
             "begin" => '-3000',
             "end" => '475'
         ],
-        "middleAge" => [
+        "MiddleAge" => [
             "begin" => '476',
             "end" => '1491'
         ],
-        "modern" => [
+        "Modern" => [
             "begin" => '1492',
             "end" => '1788'
         ],
-        "contemporary" => [
+        "Contemporary" => [
             "begin" => '1789',
             "end" => '2020'
         ]);
@@ -98,20 +98,23 @@ class ArtController extends AbstractController
         if (!empty($nextPeriod)) {
             $target = '/art/journey/'.$location.'/'.$nextPeriod;
         } else {
-            $target = '/';
+            $target = '/art/end';
         }
 
         $artworks = $this->randomPick(3, $object['objectIDs']);
         return $this->twig->render('Met/artView.html.twig', [
             'artworks' => $artworks,
             'current' => $currentPeriod,
-            'target' => $target
+            'target' => $target,
         ]);
     }
 
     /**
      * @param string $period
      * @return mixed
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     private function getNextPeriod(string $period)
     {
@@ -147,12 +150,18 @@ class ArtController extends AbstractController
     {
         $metManager = new MetManager();
         $artworks = [];
+        //var_dump($objects);
         for ($i=0; $i<$number; $i++) {
-            $rand = rand(1, count($objects));
+            $rand = rand(0, count($objects));
+
             $id = $objects[$rand];
+
             $artworks[$i] = $metManager->getInfosById($id);
         }
 
         return $artworks;
+    }
+    public function end(){
+        return $this->twig->render('Home/theEnd.html.twig' );
     }
 }
