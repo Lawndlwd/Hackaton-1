@@ -104,8 +104,9 @@ class ArtController extends AbstractController
         $artworks = $this->randomPick(3, $object['objectIDs']);
         return $this->twig->render('Met/artView.html.twig', [
             'artworks' => $artworks,
+            'location' => $location,
             'current' => $currentPeriod,
-            'target' => $target,
+            'target' => $target
         ]);
     }
 
@@ -150,19 +151,23 @@ class ArtController extends AbstractController
     {
         $metManager = new MetManager();
         $artworks = [];
-        //var_dump($objects);
         for ($i=0; $i<$number; $i++) {
-            $rand = rand(0, count($objects));
-
+            $rand = rand(0, count($objects)-1);
             $id = $objects[$rand];
-
             $artworks[$i] = $metManager->getInfosById($id);
         }
 
         return $artworks;
     }
+  
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function end()
     {
-        return $this->twig->render('Home/theEnd.html.twig' );
+        return $this->twig->render('Home/theEnd.html.twig');
     }
 }
