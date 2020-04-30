@@ -1,16 +1,21 @@
-.progress{width:100%;}
+.progress{
+    width:100%;
+    height: 30px;
+}
 body{background-color: #142850}
 #carouselArt{width: 100%;}
-img{
-    max-height:700px;
-    height:auto;
+img {
+    height: 700px;
     width: auto;
-    }
+}
 .carousel-caption{
     left:0;
     width: 100%;
     background-color: #142850;
     opacity: 60%;
+}
+.carousel-caption.blockquote {
+    opacity:100%;
 }
 .form-card1{
     height: 400px; color: #00a8cc;
@@ -70,11 +75,18 @@ ul li{
 .font-second{color: #27496d}
 .font-third{color: #0c7b93}
 .font-fourth{color: #00a8cc}
+.font-white{color: white}
 
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='00a8cc' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+a.carousel-control-prev, a.carousel-control-next{
+    background-color: #142850;
+    opacity: 50%;
 }
-
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='00a8cc' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+.progress-bar{
+    height: 100%;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+#flag{
+    height: 50px;
+    width: 50px;
 }
