@@ -161,7 +161,8 @@ class ArtController extends AbstractController
 
         return $artworks;
     }
-    public function end(){
+    public function end()
+    {
         return $this->twig->render('Home/theEnd.html.twig' );
     }
 }
